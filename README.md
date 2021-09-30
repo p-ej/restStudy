@@ -19,4 +19,4 @@
 ###### 해당 컨트롤러로 들어오는 전체 매핑은 " / "으로 지정
 ###### @RestController 어노테이션 지정 후 test메소드 생성 매핑 어노테이션은 GetMapping, test 메소드 리턴 값은 문자열 아무거나.
 
-<img src = "C:/studyjava/restStudy/mdimages">
+![reststudy1](https://user-images.githubusercontent.com/67121077/135414269-ba83d1ba-b1c5-44ef-bacd-523309448b95.PNG)
