@@ -1,4 +1,4 @@
-package com.rest.test;
+package com.rest.test.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,7 +49,7 @@ public class RestTestController {
 		return map;
 	}
 	
-	// 스프링 계층으로 나뉘어 Service를 불러와 값을 응답받음.
+	// 스프링 비즈니스 계층으로 나뉘어 Service를 불러와 값을 응답받음.
 	@GetMapping("/jsonService")
 	public Map<String,String> jsonMethod(){
 		Map<String,String> map = service.getJson();
