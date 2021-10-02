@@ -1,6 +1,7 @@
 package com.rest.test;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -14,6 +15,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -25,6 +27,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rest.test.controller.RestStudyController;
+import com.rest.test.model.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -42,14 +45,15 @@ public class RestStudyControllerTest {
 	// rest api 를 호출할 Controller 의존설정
 	@Autowired
 	private RestStudyController restStudyController; 
-
+	
+	
 	@Before
 	public void setup() {
 		this.mMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
 	}
 
-	// rest api 호출 URI 테스트
-	@Test
+	// rest api 호출 URI 테스트(Get AllUser 모든 유저 조회하기)
+//	@Test
 	public void restGetTest() throws Exception {
 
 		/*
@@ -78,5 +82,41 @@ public class RestStudyControllerTest {
 		.andDo(print());
 
 	}
+	
+	// 특정 유저 조회 (아이디) get URI : /users/{userid}
+//	@Test
+	public void restGetUserIdTest() throws Exception{
+		ObjectMapper mapper = new ObjectMapper();
+		String result = mapper.writeValueAsString(restStudyController.getUserByUserId("testid1")); // testid1 인 유저의 정보를 가져온다. 
+		
+		logger.info("result : '{}' ", result);
+		
+		mMvc.perform(MockMvcRequestBuilders.get("/users/testid1").accept(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk())
+		.andExpect(content().json(result))
+		.andDo(print());
+	}
+	
+	// 유저 등록
+	@Test
+	public void registerPost() throws Exception{
+		ObjectMapper mapper = new ObjectMapper();
+//		String result = mapper.writeValueAsString(restStudyController.registerUser(new User(6,"testName6","testid6","1234")));
+		
+//		logger.info("result : '{}' ", result);
+		
+		User user = new User(6, "testName6", "testid6", "1234");
+		mMvc.perform(post("/users")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(mapper.writeValueAsString(user)))
+		.andExpect(status().isOk())
+		.andDo(print());
+	}
+	
+	// 유저 정보 수정
+	
+	
+	// 유저 삭제 
+	
 
 }

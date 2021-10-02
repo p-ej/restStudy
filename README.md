@@ -86,3 +86,21 @@ User의 데이터를 입력또는 가져올 데이터 모델 객체다.
 
 ### 패키지와 클래스, 인터페이스 구조 (앞에 RestTest가 붙여져 있는것은 신경쓰지 말것.)
 ![reststudy8](https://user-images.githubusercontent.com/67121077/135705494-ac2c7a37-1dfd-4513-9fbe-56a41457dcb4.PNG)
+
+
+
+## Postman 대신 Test 코드로 uri 호출해보기 
+TDD를 간접적으로나마 경험해보고 싶어 작성한 Test Controller 해보니까 조금 힘들다.. 
+
+### 테스트 패키지에 클래스 생성하기
+![reststudy9](https://user-images.githubusercontent.com/67121077/135707469-fec5f8f3-6bdc-4c82-9b17-98a90c68b06a.PNG)
+
+* JSON 데이터 테스트 오류 수정 참고 URL : https://stackoverflow.com/questions/57305684/java-lang-assertionerror-response-content
+
+### RestStudyControllerTest
+![reststudy10](https://user-images.githubusercontent.com/67121077/135709695-117085dc-f7d5-45a4-9944-0240163a5fd5.PNG)
+어노테이션 설정들, 소스는 깃허브 레포 참고
+
+
+
+## Postman으로 Rest Api 동작 확인하기 
