@@ -55,9 +55,28 @@ Service와 Controller 로직을 나눈 후 (코드 작성 후) 실행결과
 
 
 
-> Spring MVC REST Ful CRUD Develope
-## RestStudyController Create
 
-## UserService(interface), UserServiceImpl Create 
+## Spring MVC REST Ful CRUD Develope
+> RestStudyController Create
+Service와의 통신을 위해 @Autowired로 의존설정을 함.
+![reststudy5](https://user-images.githubusercontent.com/67121077/135705454-044734d6-295b-47d0-8e06-a5f74dbb882b.PNG)
 
-## UserDao(interface), UserDaoImpl Create
+
+> UserService(interface), UserServiceImpl Create 
+Dao와의 통신을 위해 @Autowired로 의존설정을 함. 
+![reststudy6](https://user-images.githubusercontent.com/67121077/135705469-7152ff0b-bffe-4b8f-aab2-45e5e7a88fb9.PNG)
+
+
+
+> UserDao(interface), UserDaoImpl Create
+DB 미설정으로 임시 Users 리스트 객체를 생성함으로써 DB 형식의 구조를 갖춤.
+![reststudy7](https://user-images.githubusercontent.com/67121077/135705476-6e50680d-228f-4eaa-83dc-9fa0bee10a56.PNG)
+
+
+
+> User model Create
+User의 데이터를 입력또는 가져올 데이터 모델 객체다.
+
+
+### 패키지와 클래스, 인터페이스 구조 (앞에 RestTest가 붙여져 있는것은 신경쓰지 말것.)
+![reststudy8](https://user-images.githubusercontent.com/67121077/135705494-ac2c7a37-1dfd-4513-9fbe-56a41457dcb4.PNG)
