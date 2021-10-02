@@ -1,0 +1,82 @@
+package com.rest.test;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+
+import javax.inject.Inject;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rest.test.controller.RestStudyController;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
+@ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml")
+public class RestStudyControllerTest {
+	/*
+	 * RestStudyController의 요청응답을 테스트할 컨트롤러 
+	 */
+	private static final Logger logger = LoggerFactory.getLogger(RestStudyControllerTest.class);
+
+	@Inject
+	private WebApplicationContext wac;
+	private MockMvc mMvc;
+
+	// rest api 를 호출할 Controller 의존설정
+	@Autowired
+	private RestStudyController restStudyController; 
+
+	@Before
+	public void setup() {
+		this.mMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+	}
+
+	// rest api 호출 URI 테스트
+	@Test
+	public void restGetTest() throws Exception {
+
+		/*
+		 해당 에러 : https://stackoverflow.com/questions/57305684/java-lang-assertionerror-response-content 로 해결
+		mMvc.perform(get("/users"))
+		.andExpect(status().isOk())
+		.andExpect(content().string("{\"responseCode\":200, \"responseMsg\":\"success\"}"))
+		.andDo(print());
+		 */
+		
+		/*
+			응답이 내부적으로 JSON형태로 변환되니 케이스를 string()대신 json()을 사용해야 한다.
+			ObjectMapper를 사용해 객체 목록을 JSON 형태로 변환한다. 
+		*/
+		
+		ObjectMapper mapper = new ObjectMapper(); 
+		String result = mapper.writeValueAsString(restStudyController.getAllUsers());
+
+		logger.info("result : '{}' ", result);
+
+		mMvc.perform(MockMvcRequestBuilders
+				.get("/users")
+				.accept(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk())
+		.andExpect(content().json(result))
+		.andDo(print());
+
+	}
+
+}

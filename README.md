@@ -61,7 +61,10 @@ Service와 Controller 로직을 나눈 후 (코드 작성 후) 실행결과
 Service와의 통신을 위해 @Autowired로 의존설정을 함.
 
 ![reststudy5](https://user-images.githubusercontent.com/67121077/135705454-044734d6-295b-47d0-8e06-a5f74dbb882b.PNG)
-
+- Get(모든 유저, 특정 유저)
+- Post(유저 등록)
+- Put(유저 정보 수정)
+- Delete(유저 삭제)
 
 ### UserService(interface), UserServiceImpl Create 
 Dao와의 통신을 위해 @Autowired로 의존설정을 함. 
