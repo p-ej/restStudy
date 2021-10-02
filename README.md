@@ -89,7 +89,8 @@ User의 데이터를 입력또는 가져올 데이터 모델 객체다.
 
 
 
-## Postman 대신 Test 코드로 uri 호출해보기 
+# Postman 대신 Test 코드로 uri 호출해보기 
+## Controller 테스팅
 TDD를 간접적으로나마 경험해보고 싶어 작성한 Test Controller 해보니까 조금 힘들다.. 
 
 ### 테스트 패키지에 클래스 생성하기
@@ -103,4 +104,4 @@ TDD를 간접적으로나마 경험해보고 싶어 작성한 Test Controller �
 
 
 
-## Postman으로 Rest Api 동작 확인하기 
+# Postman으로 Rest Api 동작 확인하기 
