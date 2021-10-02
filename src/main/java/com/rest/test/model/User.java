@@ -1,5 +1,6 @@
 package com.rest.test.model;
 
+
 public class User {
 	private int userNo;
 	private String userName;

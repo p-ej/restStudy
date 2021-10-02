@@ -15,8 +15,8 @@ public interface UserDao {
 	public User insertUser(User user);
 	
 	// 유저 정보 수정
-	public void updateUser(String userId, User user);
+	public User updateUser(String userId, User user);
 	
 	// 유저 삭제
-	public void deleteUser(String userId);
+	public boolean deleteUser(String userId);
 }

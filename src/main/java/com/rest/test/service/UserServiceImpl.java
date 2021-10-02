@@ -36,14 +36,14 @@ public class UserServiceImpl implements UserService{
 
 	// 유저 정보 수정
 	@Override
-	public void modifyUser(String userId, User user) {
-		userDao.updateUser(userId, user);
+	public User modifyUser(String userId, User user) {
+		return userDao.updateUser(userId, user);
 	}
 
 	// 유저 삭제
 	@Override
-	public void removeUser(String userId) {
-		userDao.deleteUser(userId);
+	public boolean removeUser(String userId) {
+		return userDao.deleteUser(userId);
 	}
 
 }

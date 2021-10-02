@@ -16,8 +16,8 @@ public interface UserService {
 	public User registerUser(User user);
 	
 	// 유저 수정
-	public void modifyUser(String userId, User user);
+	public User modifyUser(String userId, User user);
 	
 	// 유저 삭제
-	public void removeUser(String userId);
+	public boolean removeUser(String userId);
 }

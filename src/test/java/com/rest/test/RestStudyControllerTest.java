@@ -1,6 +1,7 @@
 package com.rest.test;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -44,6 +45,7 @@ public class RestStudyControllerTest {
 	@Autowired
 	private RestStudyController restStudyController; 
 	
+	
 	// 테스트 시작 전 실행해야할 함수 
 	@Before
 	public void setup() {
@@ -67,8 +69,7 @@ public class RestStudyControllerTest {
 			응답이 내부적으로 JSON형태로 변환되니 케이스를 string()대신 json()을 사용해야 한다.
 			ObjectMapper를 사용해 객체 목록을 JSON 형태로 변환한다. 
 		*/
-		
-		ObjectMapper mapper = new ObjectMapper(); 
+		ObjectMapper mapper = new ObjectMapper();
 		String result = mapper.writeValueAsString(restStudyController.getAllUsers());
 
 		logger.info("result : '{}' ", result);
@@ -97,8 +98,8 @@ public class RestStudyControllerTest {
 	}
 	
 	// 유저 등록
-	@Test
-	public void registerPost() throws Exception{
+//	@Test
+	public void registerPostTest() throws Exception{
 		ObjectMapper mapper = new ObjectMapper();
 		
 		User user = new User(6, "testName6", "testid6", "1234");
@@ -110,9 +111,25 @@ public class RestStudyControllerTest {
 	}
 	
 	// 유저 정보 수정
-	
+//	@Test
+	public void modifyPutTest() throws Exception{
+		ObjectMapper mapper = new ObjectMapper();
+		User user = new User(5, "tttttest","testid5","1234");
+		
+		mMvc.perform(put("/users/testid5")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(mapper.writeValueAsString(user)))
+		.andExpect(status().isOk())
+		.andDo(print());
+	}
 	
 	// 유저 삭제 
-	
+	@Test
+	public void deleteTest() throws Exception{
+//		mMvc.perform(MockMvcRequestBuilders.delete("/users/testid1")) // true
+		mMvc.perform(MockMvcRequestBuilders.delete("/users/testid7")) // false
+		.andExpect(status().isOk())
+		.andDo(print());
+	}
 
 }

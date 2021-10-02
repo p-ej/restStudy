@@ -49,18 +49,24 @@ public class UserDaoImpl implements UserDao{
 
 	// 유저 정보 수정
 	@Override
-	public void updateUser(String userId, User user) {
+	public User updateUser(String userId, User user) {
 		users.stream()
 		.filter(curUser -> curUser.getUserId().equals(userId))
 		.findAny()
 		.orElse(new User(-1,"","",""))
 		.setUserName(user.getUserName());
+		
+		return user;
 	}
 
 	// 유저 삭제
 	@Override
-	public void deleteUser(String userId) {
-		users.removeIf(user -> user.getUserId().equals(userId));
+	public boolean deleteUser(String userId) {
+		boolean tandf = users.removeIf(user -> user.getUserId().equals(userId));
+		if (!tandf) {
+			return tandf;
+		}
+		return tandf;
 	}
 
 }

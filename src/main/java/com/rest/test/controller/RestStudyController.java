@@ -45,13 +45,14 @@ public class RestStudyController {
 	
 	// 유저 정보 수정
 	@PutMapping("/{userid}")
-	public void modifyUser(@PathVariable String userid, @RequestBody User user) {
-		service.modifyUser(userid, user);
+	public User modifyUser(@PathVariable String userid, @RequestBody User user) {
+		User userup = service.modifyUser(userid, user);
+		return userup;
 	}
 
 	// 유저 삭제
 	@DeleteMapping("/{userid}")
-	public void removeUser(@PathVariable String userid) {
-		service.removeUser(userid);
+	public boolean removeUser(@PathVariable String userid) {
+		return service.removeUser(userid);
 	}
 }	
