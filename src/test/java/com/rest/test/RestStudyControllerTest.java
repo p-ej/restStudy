@@ -1,6 +1,5 @@
 package com.rest.test;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -15,7 +14,6 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -46,10 +44,11 @@ public class RestStudyControllerTest {
 	@Autowired
 	private RestStudyController restStudyController; 
 	
-	
+	// 테스트 시작 전 실행해야할 함수 
 	@Before
 	public void setup() {
 		this.mMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+		logger.info("mMvc setup : '{}'",this.mMvc);
 	}
 
 	// rest api 호출 URI 테스트(Get AllUser 모든 유저 조회하기)
@@ -101,9 +100,6 @@ public class RestStudyControllerTest {
 	@Test
 	public void registerPost() throws Exception{
 		ObjectMapper mapper = new ObjectMapper();
-//		String result = mapper.writeValueAsString(restStudyController.registerUser(new User(6,"testName6","testid6","1234")));
-		
-//		logger.info("result : '{}' ", result);
 		
 		User user = new User(6, "testName6", "testid6", "1234");
 		mMvc.perform(post("/users")
