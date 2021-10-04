@@ -105,20 +105,28 @@ TDD를 간접적으로나마 경험해보고 싶어 작성한 Test Controller �
 
 #### Get (전체, 특정유저)
  - perform.get
+
 ![reststudy11](https://user-images.githubusercontent.com/67121077/135797553-2b9b36ee-07f4-4776-ab40-650a37c17321.PNG)
 ![reststudy12](https://user-images.githubusercontent.com/67121077/135797583-d473ac9d-6992-4cd7-98db-eef6bab1aaf6.PNG)
 
+
 #### Post (유저 등록)
  - perform.post
+
 ![reststudy13](https://user-images.githubusercontent.com/67121077/135797619-7226e777-d528-4824-af09-6a955381f846.PNG)
+
 
 #### Put (유저 정보 수정)
  - perform.put
+
 ![reststudy14](https://user-images.githubusercontent.com/67121077/135797650-c93821ea-ca0c-48dc-b306-a8550ec1e1fd.PNG)
+
 
 #### Delete(유저 삭제)
  - perform.delete
+
 ![reststudy15](https://user-images.githubusercontent.com/67121077/135797684-3abd6c9b-bb44-42fc-b866-6e6b073c6f18.PNG)
+
 
 #### perform()
  - DispatcherServlet에 요청 get, post, delete, put 등의 메소드를 제공함
