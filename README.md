@@ -115,7 +115,7 @@ TDD를 간접적으로나마 경험해보고 싶어 작성한 Test Controller �
  - perform.delete
 
 #### perform()
-DispatcherServlet에 요청 get, post, delete, put 등의 메소드를 제공함
+ - DispatcherServlet에 요청 get, post, delete, put 등의 메소드를 제공함
 
 # Postman으로 Rest Api 동작 확인하기 
 포스트맨 호출 테스트 확인 (글 정리)
