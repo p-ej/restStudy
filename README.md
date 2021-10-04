@@ -1,6 +1,7 @@
 # Spring MVC로 Rest CRUD 구현해보기
 ## source URL : " https://devkingdom.tistory.com/105?category=761188 "
 ### Config : Spring Framework(5.1.1), Windows 10, Eclipse 2021.03
+### Test Framework : JUnit 4.12
 
 > RestFul Web Service
 
