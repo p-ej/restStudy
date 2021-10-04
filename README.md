@@ -133,3 +133,22 @@ TDD를 간접적으로나마 경험해보고 싶어 작성한 Test Controller �
 
 # Postman으로 Rest Api 동작 확인하기 
 포스트맨 호출 테스트 확인 (글 정리)
+
+- Get URI 요청 (정보 불러오기)
+
+![reststudy16](https://user-images.githubusercontent.com/67121077/135799609-f5299fe0-0107-4872-a572-f3453d76764b.PNG)
+
+
+- Post URI 요청 (유저 등록)
+
+![reststudy17](https://user-images.githubusercontent.com/67121077/135799990-e3f39db9-8242-47e8-9538-d6509e419f1d.PNG)
+
+
+- Put URI 요청 (유저 정보 수정)
+
+![reststudy18](https://user-images.githubusercontent.com/67121077/135800098-8c1133de-e4b6-40e2-91bc-56dc837aa1d5.PNG)
+
+
+- Delete URI 요청 (유저 삭제)
+
+![reststudy19](https://user-images.githubusercontent.com/67121077/135800296-d045055d-5e64-4858-8ed0-c5b798733863.PNG)
