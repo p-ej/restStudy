@@ -29,7 +29,7 @@ import com.rest.test.controller.RestStudyController;
 import com.rest.test.model.User;
 
 @RunWith(SpringJUnit4ClassRunner.class) // 해당 어노테이션은 JUnit 프레임워크의 테스트 실행방법을 확장할 때 사용하는 어노테이션
-@WebAppConfiguration // 웹 애플리케이션 전용 DI 컨테이너로 처리합니다. 
+@WebAppConfiguration // 웹 애플리케이션 전용 DI 컨테이너로 처리
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml")
 // Spring Bean 메타 설정 파일의 패키지에서 설정 파일을 찾습니다. (설정 파일의 위치를 지정할 때 사용함.)
 public class RestStudyControllerTest {
@@ -38,6 +38,7 @@ public class RestStudyControllerTest {
 	 */
 	private static final Logger logger = LoggerFactory.getLogger(RestStudyControllerTest.class);
 
+	// Autowired와 유사함.
 	@Inject
 	private WebApplicationContext wac;
 	private MockMvc mMvc;
