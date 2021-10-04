@@ -103,16 +103,16 @@ TDD를 간접적으로나마 경험해보고 싶어 작성한 Test Controller �
 어노테이션 설정들, 소스는 깃허브 레포 참고
 
 #### Get (전체, 특정유저)
-perform.get
+ -perform.get
 
 #### Post (유저 등록)
-perform.post
+ -perform.post
 
 #### Put (유저 정보 수정)
-perform.put
+ -perform.put
 
 #### Delete(유저 삭제)
-perform.delete
+ -perform.delete
 
 - perform()
 DispatcherServlet에 요청
